@@ -1,0 +1,55 @@
+    ~/Developer/goEx2/src ·········································· 4s   17:49:30  
+❯ go run main.go
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=0
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=50
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=100
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=150
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=200
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=250
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=300
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=350
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=400
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=450
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=500
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=550
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=600
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=650
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=700
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=750
+Done, extracted 798 in 18.65535958s
+
+    ~/Developer/goEx2/src ········································· 21s   17:50:34  
+❯ go run main.go
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+Finding the last page...
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=250
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=650
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=500
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=50
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=750
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=700
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=550
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=150
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=600
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=350
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=300
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=450
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=0
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=400
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=200
+pageUrl: https://kr.indeed.com/jobs?q=python&limit=50&start=100
+Done, extracted 792 in 9.119233926s
