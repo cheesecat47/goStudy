@@ -13,11 +13,6 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-var (
-	limit   int    = 50
-	baseURL string = fmt.Sprintf("https://kr.indeed.com/jobs?q=python&limit=%d", limit)
-)
-
 type extractedJob struct {
 	id       string
 	title    string
@@ -25,14 +20,15 @@ type extractedJob struct {
 	summary  string
 }
 
-func Scrapper() {
+func Scrapper(term string) {
 	startTime := time.Now()
+	baseURL := fmt.Sprintf("https://kr.indeed.com/jobs?q=%s&limit=50", term)
 	totalPages := getPages(baseURL, 0)
 
 	var jobs []extractedJob
 	c := make(chan []extractedJob)
 	for i := 0; i < totalPages; i++ {
-		go getPage(i, c)
+		go getPage(baseURL, i, c)
 	}
 
 	for i := 0; i < totalPages; i++ {
@@ -43,7 +39,7 @@ func Scrapper() {
 	fmt.Println("Done, extracted", len(jobs), "in", time.Since(startTime))
 }
 
-func getPage(page int, mainC chan<- []extractedJob) {
+func getPage(baseURL string, page int, mainC chan<- []extractedJob) {
 	pageURL := baseURL + "&start=" + strconv.Itoa(page*50)
 	fmt.Println("pageUrl:", pageURL)
 
@@ -74,20 +70,21 @@ func extractJob(card *goquery.Selection, c chan<- extractedJob) {
 	id, _ := card.Attr("data-jk")
 	c <- extractedJob{
 		id:       id,
-		title:    cleanString(card.Find(".title>a").Text()),
-		location: cleanString(card.Find(".sjcl").Text()),
-		summary:  cleanString(card.Find(".summary").Text()),
+		title:    CleanString(card.Find(".title>a").Text()),
+		location: CleanString(card.Find(".sjcl").Text()),
+		summary:  CleanString(card.Find(".summary").Text()),
 	}
 }
 
-func cleanString(s string) string {
-	return strings.Join(strings.Fields(strings.TrimSpace(s)), " ")
+func CleanString(s string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(s)), "")
 }
 
-func getPages(url string, prevLast int) (lastPage int) {
+func getPages(baseURL string, prevLast int) (lastPage int) {
 	fmt.Println("Finding the last page...")
+	url := baseURL
 	if prevLast != 0 {
-		url = baseURL + "&start=" + strconv.Itoa((prevLast-1)*limit)
+		url = baseURL + "&start=" + strconv.Itoa((prevLast-1)*50)
 	}
 
 	res, err := http.Get(url)
